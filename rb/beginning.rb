@@ -1,8 +1,8 @@
 #
 #  BEGINNING GAMESTATE
 #    this gamestate essentially just plays the opening music and pushes the OpeningCredits gamestate
-class Beginning < Chingu::GameState
-  trait :timer
+class Beginning < (Gamestate rescue Gosu::Window) # < Chingu::GameState
+  #trait :timer
   def setup
     self.input = { :esc => :exit } #, [:enter, :return] => OpeningCredits, :p => Pause, :r => lambda{current_game_state.setup} }
     $music = Song["media/audio/music/intro_song.ogg"]
@@ -15,7 +15,7 @@ end
 #
 #  PAUSE GAMESTATE
 #    pressing 'P' at any time pauses the current gamestate (except possibly during fades)
-class Pause < Chingu::GameState
+class Pause < (Gamestate rescue Gosu::Window)
   def initialize(options = {})
     super
     @title = Chingu::Text.create(:text=>"PAUSED (press 'P' to un-pause)", :y=>110, :size=>30, :color => Color.new(0xFF00FF00), :zorder=>1000 )
@@ -39,7 +39,7 @@ end
 #
 #  OPENING CREDITS GAMESTATE
 #    Gosu logo with animated highlights 
-class OpeningCredits < Chingu::GameState
+class OpeningCredits < (Gamestate rescue Gosu::Window)
   trait :timer
   def setup
     self.input = { :esc => :exit, [:enter, :return] => :intro, :p => Pause, :r => lambda{current_game_state.setup} }
@@ -64,7 +64,7 @@ end
 #
 #  OPENING CREDITS 2 GAMESTATE
 #    Ruby logo with animated sparkle
-class OpeningCredits2 < Chingu::GameState
+class OpeningCredits2 < (Gamestate rescue Gosu::Window)
   trait :timer
   def setup
     self.input = { :esc => :exit, [:enter, :return] => :intro, :p => Pause, :r => lambda{current_game_state.setup} }
@@ -100,7 +100,7 @@ end
 #
 #  INTRODUCTION GAMESTATE
 #
-class Introduction < Chingu::GameState
+class Introduction < (Gamestate rescue Gosu::Window)
   trait :timer
   def initialize
     super

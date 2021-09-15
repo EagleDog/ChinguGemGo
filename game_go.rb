@@ -1,5 +1,6 @@
+# Encoding: UTF-8
 
-require Gosu
+require 'gosu'
 
 # require 'chingu'
 
@@ -31,7 +32,7 @@ end
 #
 #  GameWindow Class
 #
-class GameWindow < Gosu::Window
+class GameWindow < (Example rescue Gosu::Window) # < Chingu::Window
   def initialize
     super(800,600,false)
     $intro = true     # define constants used in game
@@ -71,4 +72,4 @@ class GameWindow < Gosu::Window
 end
 
 
-GameWindow.new.show # change to Game.new.show to see alternate window class
+GameWindow.new.show if __FILE__ == $0   #Game.new.show alternate window class
