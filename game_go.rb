@@ -40,10 +40,14 @@ class GameWindow < (Example rescue Gosu::Window) # < Chingu::Window
     $max_y = 615
     $scr_edge = 15
     $cooling_down = 70
-    $star_grab = Sound["media/audio/star_pickup.ogg"]
-    $power_up = Sound["media/audio/power_up.ogg"]
+    $star_grab = "media/audio/star_pickup.ogg" #Sound["media/audio/star_pickup.ogg"]
+    $power_up = "media/audio/power_up.ogg" #Sound["media/audio/power_up.ogg"]
     self.caption = " __ __ Chingu Gem Go __ __ "
     @cursor = true                        # false hides cursor
+
+##==========>>>>>
+##__________>>>>>
+
     self.input = { :esc => :exit,         # global controls
                  [:q, :l] => :pop,
                  :z => :log,

@@ -1,7 +1,7 @@
 #
 #   GAMEOVER GAMESTATE
 #     simple GameOver gamestate
-class GameOver < Chingu::GameState
+class GameOver < (Gamestate rescue Gosu::Window) # < Chingu::GameState
   def initialize
     super
     self.input = { :esc => :exit, [:enter, :return] => Introduction, :p => Pause, :r => lambda{current_game_state.setup}, [:q, :l] => :pop }
@@ -24,8 +24,8 @@ end
 #
 #   WIN GAMESTATE
 #     transition gamestate from Level_3 to Ending
-class Win < Chingu::GameState
-  trait :timer
+class Win < (Gamestate rescue Gosu::Window)
+  #trait :timer
   def setup
     self.input = { :esc => :exit, :p => Pause, :r => lambda{current_game_state.setup}, [:q, :l] => :pop }
     $window.caption = "Victory!"
@@ -93,8 +93,8 @@ end
 #
 #  ENDING GAMESTATE
 #    the beginning of the end
-class Ending < Chingu::GameState
-  trait :timer
+class Ending < (Gamestate rescue Gosu::Window)
+  #trait :timer
   def setup
     self.input = { :esc => :exit, [:enter, :return] => Ending2, :p => Pause, :r => lambda{current_game_state.setup} }
 
@@ -125,8 +125,8 @@ end
 #
 #  ENDING2 GAMESTATE
 #    the middle of the end
-class Ending2 < Chingu::GameState
-  trait :timer
+class Ending2 < (Gamestate rescue Gosu::Window)
+  #trait :timer
   def setup
     self.input = { :esc => :exit, [:enter, :return] => Ending3, :p => Pause, :r => lambda{current_game_state.setup} }
 
@@ -166,8 +166,8 @@ end
 #
 #  ENDING3 GAMESTATE
 #    the end of the end - massive celebration
-class Ending3 < Chingu::GameState
-  trait :timer
+class Ending3 < (Gamestate rescue Gosu::Window)
+  #trait :timer
   def setup
     self.input = { :esc => :exit, [:enter, :return] => EndCredits, :p => Pause, :r => lambda{current_game_state.setup} }
 
@@ -220,8 +220,8 @@ end
 #
 #   END CREDITS GAMESTATE
 #     the end of the end of the end - big thanks to everyone who helped out!
-class EndCredits < Chingu::GameState
-  trait :timer
+class EndCredits < (Gamestate rescue Gosu::Window)
+  #trait :timer
   def initialize
     super
     self.input = { :esc => :exit, [:enter, :return] => Introduction, :p => Pause, :r => lambda{current_game_state.setup}, [:q, :l] => :pop }

@@ -1,7 +1,7 @@
 #
 #  KNIGHT
 #    called in beginning.rb, in Introduction gamestate
-class Knight < Chingu::GameObject
+class Knight # < Chingu::GameObject
   def initialize(options)
     super
     @image = Image["media/assets/knight.png"]
@@ -32,7 +32,7 @@ end
 #
 #  END KNIGHT
 #    called in ending.rb, in Ending3 gamestate
-class EndKnight < Chingu::GameObject
+class EndKnight # < Chingu::GameObject
   def setup
     @image = Image["media/assets/knight_left.png"]
   end
@@ -44,7 +44,7 @@ end
 #
 #  CHARACTERS
 #    called in ending.rb, in Ending3 gamestate
-class Characters < Chingu::GameObject
+class Characters # < Chingu::GameObject
   def initialize(options={})
     super
     self.x = rand(812) - 6       # place characters randomly all over
@@ -195,7 +195,7 @@ end
 #
 #  CROWD
 #    Enormous background multitude
-class Crowd < Chingu::GameObject
+class Crowd # < Chingu::GameObject
   def setup           # this is a ten-frame animation
     @c1 = Gosu::Image["assets/crowd/crowd1.png"]
     @c2 = Gosu::Image["assets/crowd/crowd2.png"]

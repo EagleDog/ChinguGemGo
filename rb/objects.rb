@@ -3,10 +3,10 @@ DEBUG = false  # Set to true to see bounding circles used for collision detectio
 #
 #  PLAYER CLASS
 #    called in levels.rb and in ending.rb (Win gamestate)
-class Player < Chingu::GameObject
+class Player # < Chingu::GameObject
 	attr_reader :health, :score
-  trait :bounding_circle, :debug => DEBUG
-	traits :velocity, :collision_detection
+  #trait :bounding_circle, :debug => DEBUG
+	#traits :velocity, :collision_detection
 	def initialize(health)
 		super
     @picture1 = Gosu::Image["assets/player.png"]
@@ -121,8 +121,8 @@ end
 #
 #   EXPLOSION
 #     called in levels.rb when meteors are destroyed and when player dies
-class Explosion < Chingu::GameObject
-  traits :timer
+class Explosion # < Chingu::GameObject
+  #traits :timer
   def setup
     @ex1, @ex2, @ex3, @ex4, @ex5, @ex6, @ex7, @ex8, @ex9, @ex10, @ex11=
       *Image.load_tiles($window, "media/assets/explosion.png", 100, 100, false)
@@ -161,9 +161,9 @@ end
 #
 #   BULLET
 #     technically speaking, it's a laser, but it's still called "Bullet"
-class Bullet < Chingu::GameObject
-  trait :bounding_circle, :debug => DEBUG
-  has_traits :timer, :velocity, :collision_detection
+class Bullet # < Chingu::GameObject
+  #trait :bounding_circle, :debug => DEBUG
+  #has_traits :timer, :velocity, :collision_detection
 
   def initialize(options)
     super(options.merge(:image => Gosu::Image["assets/laser.png"]))
@@ -187,9 +187,9 @@ end
 #
 #   STAR CLASS
 #     stars can be picked up by player; called in levels.rb
-class Star < Chingu::GameObject
-  trait :bounding_circle, :debug => DEBUG
-  trait :collision_detection
+class Star # < Chingu::GameObject
+  #trait :bounding_circle, :debug => DEBUG
+  #trait :collision_detection
   
   def setup
     @animation = Chingu::Animation.new(:file => "../media/assets/living.png", :size => 64)
@@ -216,9 +216,9 @@ end
 #
 #   METEOR
 #     Meteor class is used in Introduction gamestate
-class Meteor < Chingu::GameObject
-  trait :bounding_circle, :debug => DEBUG
-  traits :velocity, :collision_detection
+class Meteor # < Chingu::GameObject
+  #trait :bounding_circle, :debug => DEBUG
+  #traits :velocity, :collision_detection
 
 	def initialize(options)
 		super(options.merge(:image => Gosu::Image["assets/meteor.png"]))
@@ -237,9 +237,9 @@ end
 #
 #   METEOR 1 - BIG
 #     Meteor1 class is used in levels.rb
-class Meteor1 < Chingu::GameObject
-  trait :bounding_circle, :debug => DEBUG
-  traits :velocity, :collision_detection
+class Meteor1 # < Chingu::GameObject
+  #trait :bounding_circle, :debug => DEBUG
+  #traits :velocity, :collision_detection
 
   def setup
     @image = Image["media/assets/meteor.png"]
@@ -267,9 +267,9 @@ end
 #
 #   METEOR 2 - MEDIUM
 #     Meteor2 class is used in levels.rb
-class Meteor2 < Chingu::GameObject
-  trait :bounding_circle, :debug => DEBUG
-  traits :velocity, :collision_detection
+class Meteor2 # < Chingu::GameObject
+  #trait :bounding_circle, :debug => DEBUG
+  #traits :velocity, :collision_detection
 
   def setup
     @image = Image["media/assets/meteor.png"]
@@ -297,9 +297,9 @@ end
 #
 #   METEOR 3 - SMALL
 #     Meteor3 class is used in levels.rb
-class Meteor3 < Chingu::GameObject
-  trait :bounding_circle, :debug => DEBUG
-  traits :velocity, :collision_detection
+class Meteor3 # < Chingu::GameObject
+  #trait :bounding_circle, :debug => DEBUG
+  #traits :velocity, :collision_detection
 
   def setup
     @image = Image["media/assets/meteor.png"]
@@ -327,7 +327,7 @@ end
 #
 #  SPARKLE
 #    called in OpeningCredits2 gamestate (Ruby logo)
-class Sparkle < Chingu::GameObject
+class Sparkle # < Chingu::GameObject
   def setup
     @image = Image["media/assets/sparkle.png"]
     self.factor = 0.1
@@ -355,7 +355,7 @@ end
 #
 #  HIGHLIGHT
 #    called in OpeningCredits gamestate (Gosu logo)
-class Highlight < Chingu::GameObject
+class Highlight # < Chingu::GameObject
   def setup
     @image = Image["media/assets/highlight.png"]
   end
@@ -367,7 +367,7 @@ end
 #
 #  HIGHLIGHT2
 #    called in OpeningCredits gamestate (Gosu logo)
-class Highlight2 < Chingu::GameObject
+class Highlight2 # < Chingu::GameObject
   def setup
     @image = Image["media/assets/highlight2.png"]
   end
@@ -379,7 +379,7 @@ end
 #
 #  EARTH 1
 #    called in Ending gamestate - trial and error adjustments to slowly zoom into view
-class Earth1 < Chingu::GameObject
+class Earth1 # < Chingu::GameObject
   def setup
     @image = Image["media/assets/future_earth.png"]
     self.factor = 0.002
@@ -414,7 +414,7 @@ end
 #
 #  EARTH 2
 #    used in Ending2 gamestate
-class Earth2 < Chingu::GameObject
+class Earth2 # < Chingu::GameObject
   def setup
     @image = Image["media/assets/future_earth2.png"]
     self.factor = 1.2
@@ -435,9 +435,9 @@ end
 #  END PLAYER
 #    Player clone with no blinking, used in Introduction and Ending gamestates
 #    Adds in some methods to adjust the spaceship size and movement as it descends to Earth
-class EndPlayer < Chingu::GameObject
-  trait :bounding_circle, :debug => DEBUG
-  traits :velocity, :collision_detection
+class EndPlayer # < Chingu::GameObject
+  #trait :bounding_circle, :debug => DEBUG
+  #traits :velocity, :collision_detection
   def setup
     @image = Gosu::Image["assets/player.png"]
     @width, @height = 32, 32
@@ -496,10 +496,10 @@ end
 #
 #  END PLAYER SIDE
 #    used in Ending 2 gamestate
-class EndPlayerSide < Chingu::GameObject
+class EndPlayerSide # < Chingu::GameObject
 #  attr_reader :health, :score
-  trait :bounding_circle, :debug => DEBUG
-  traits :velocity, :collision_detection
+  #trait :bounding_circle, :debug => DEBUG
+  #traits :velocity, :collision_detection
   def setup
     @image = Gosu::Image["assets/player_side.png"]
     @width, @height = 32, 32
@@ -544,7 +544,7 @@ end
 #
 #  SPIRE
 #    used in Ending3 gamestate
-class Spire < Chingu::GameObject
+class Spire # < Chingu::GameObject
   def setup
     @image = Gosu::Image["assets/spire.png"]
   end
@@ -553,7 +553,7 @@ end
 #
 #  SIGNATURE 1
 #    used in EndCredits gamestate
-class Signature1 < Chingu::GameObject
+class Signature1 # < Chingu::GameObject
   def setup
     @image = Image["media/assets/fut_earth_sig.png"]
     self.factor = 0.9
@@ -563,7 +563,7 @@ end
 #
 #  SIGNATURE 2
 #    used in EndCredits gamestate
-class Signature2 < Chingu::GameObject
+class Signature2 # < Chingu::GameObject
   def setup
     @image = Image["media/assets/fut_earth2_sig.png"]
     self.factor = 1.4

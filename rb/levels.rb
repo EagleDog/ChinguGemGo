@@ -1,8 +1,8 @@
 #
 #   LEVEL 1 GAMESTATE
 #      This is where the actual gameplay begins
-class Level_1 < Chingu::GameState
-  trait :timer
+class Level_1 < (Gamestate rescue Gosu::Window) # < Chingu::GameState
+#  trait :timer
   def initialize
     super
     $health = 6   # starting health is 6      These constants are updated throughout the game.
@@ -155,8 +155,8 @@ end
 #
 #   LEVEL 2 GAMESTATE
 #     nearly identical to Level_1, but with more meteors
-class Level_2 < Chingu::GameState
-  trait :timer
+class Level_2 < (Gamestate rescue Gosu::Window)
+#  trait :timer
   def initialize
     super
     self.input = { :return => Level_3, :p => Pause, :r => lambda{ current_game_state.setup } }
@@ -294,8 +294,8 @@ end
 #
 #   LEVEL 3 GAMESTATE
 #     almost the same as Level_1 and Level_2
-class Level_3 < Chingu::GameState
-  trait :timer
+class Level_3 < (Gamestate rescue Gosu::Window)
+#  trait :timer
   def initialize
     super
     self.input = { :return => Win, :p => Pause, :r => lambda{ current_game_state.setup } }

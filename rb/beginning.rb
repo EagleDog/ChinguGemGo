@@ -18,8 +18,8 @@ end
 class Pause < (Gamestate rescue Gosu::Window)
   def initialize(options = {})
     super
-    @title = Chingu::Text.create(:text=>"PAUSED (press 'P' to un-pause)", :y=>110, :size=>30, :color => Color.new(0xFF00FF00), :zorder=>1000 )
-    @title.x = 400 - @title.width/2
+#    @title = Chingu::Text.create(:text=>"PAUSED (press 'P' to un-pause)", :y=>110, :size=>30, :color => Color.new(0xFF00FF00), :zorder=>1000 )
+#    @title.x = 400 - @title.width/2
     self.input = { :p => :un_pause, :r => :reset }
     $music.pause
   end
@@ -40,7 +40,7 @@ end
 #  OPENING CREDITS GAMESTATE
 #    Gosu logo with animated highlights 
 class OpeningCredits < (Gamestate rescue Gosu::Window)
-  trait :timer
+#  trait :timer
   def setup
     self.input = { :esc => :exit, [:enter, :return] => :intro, :p => Pause, :r => lambda{current_game_state.setup} }
     @beam = Highlight.create(:x => 66, :y => 300)  # Highlights are defined in objects.rb
@@ -65,7 +65,7 @@ end
 #  OPENING CREDITS 2 GAMESTATE
 #    Ruby logo with animated sparkle
 class OpeningCredits2 < (Gamestate rescue Gosu::Window)
-  trait :timer
+#  trait :timer
   def setup
     self.input = { :esc => :exit, [:enter, :return] => :intro, :p => Pause, :r => lambda{current_game_state.setup} }
     Sparkle.destroy_all
@@ -101,7 +101,7 @@ end
 #  INTRODUCTION GAMESTATE
 #
 class Introduction < (Gamestate rescue Gosu::Window)
-  trait :timer
+#  trait :timer
   def initialize
     super
     self.input = { [:enter, :return] => :next, :p => Pause, :r => lambda{current_game_state.setup} }

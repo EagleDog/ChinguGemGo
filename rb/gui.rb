@@ -1,7 +1,7 @@
 #
 #  GUI CLASS
 #    Health Meter, Star Meter, Score
-class GUI < Chingu::GameObject
+class GUI # < Chingu::GameObject
 	def initialize(player)
 		super()
 		@gui_player = player
