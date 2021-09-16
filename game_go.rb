@@ -23,7 +23,7 @@ require_relative 'rb/gui.rb'
 require_relative 'rb/ending.rb'
 require_relative 'rb/characters.rb'
 
-module Zorder  # define some frequently used Zorders
+module Zorder  # define Zorders
 	GUI = 400
 	Text = 300
 	Main_Character = 200
@@ -33,7 +33,7 @@ module Zorder  # define some frequently used Zorders
 	Particle = 5
 end
 
-module Colors   # define some colors
+module Colors   # define colors
 	Dark_Orange = Gosu::Color.new(0xFFCC3300)
 	White = Gosu::Color.new(0xFFFFFFFF)
 	Blue_Laser = Gosu::Color.new(0xFF86EFFF)
