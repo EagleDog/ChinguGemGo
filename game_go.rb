@@ -1,4 +1,14 @@
 # Encoding: UTF-8
+#                                             #
+#                                             #
+#       The fate of the Multiverse            #
+#                                             #
+#         hangs in the balance......          #
+#                                             #
+#       Chingu!..... Gem!..... Go!.......     #
+#                                             #
+#                                             #
+#                                             #
 
 require 'gosu'
 
